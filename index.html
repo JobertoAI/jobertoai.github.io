@@ -1,187 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joberto AI - Your Job Application Assistant</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            color: #333;
-        }
-        header {
-            background-color: #a8d5ba; /* Soft green */
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        header p {
-            font-size: 1.2em;
-        }
-        .cta-button {
-            display: inline-block;
-            background-color: #ffdd93; /* Neutral tan */
-            color: #333;
-            padding: 10px 20px;
-            margin-top: 20px;
-            text-decoration: none;
-            font-size: 1.2em;
-            border-radius: 5px;
-        }
-        .cta-button:hover {
-            background-color: #ffcc66;
-        }
-        section {
-            padding: 20px;
-            text-align: center;
-        }
-        section:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        h2 {
-            color: #5d8a6e; /* Darker green */
-        }
-        .features, .steps {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .features div, .steps div {
-            flex: 1 1 calc(33.33% - 40px);
-            margin: 10px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #fff;
-        }
-        .pricing {
-            padding: 20px;
-        }
-
-        .pricing table {
-            width: 100%;
-            border-collapse: collapse;
-            border-radius: 8px;
-        }
-
-        .pricing th, .pricing td {
-            text-align: left;
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
-
-        .pricing th {
-            background-color: #f3ca7e;
-            color: white;
-        }
-        footer {
-            background-color: #5d8a6e;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-        footer a {
-            color: #ffdd93;
-            text-decoration: none;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Welcome to<br>🦎 Joberto AI ✨</h1>
-        <p>Your AI-powered job application assistant.</p>
-        <a href="#get-started" class="cta-button">Download Now</a>
-    </header>
-    <section>
-        <h2>What is Joberto AI?</h2>
-        <p>Joberto AI helps you quickly apply for jobs by creating dynamic, custom resumes tailored to job descriptions. Get started today and land your dream job faster!</p>
-    </section>
-    <section>
-        <h2>Features</h2>
-        <div class="features">
-            <div>
-                <h3>Dynamic Resume Creation</h3>
-                <p>Generate tailored resumes for any job description in seconds.</p>
-            </div>
-            <div>
-                <h3>Canva Integration</h3>
-                <p>Design beautiful resumes and analyze their layout seamlessly.</p>
-            </div>
-            <div>
-                <h3>Motivational Support</h3>
-                <p>Stay inspired with daily motivational messages and tips.</p>
-            </div>
-        </div>
-    </section>
-    <section>
-        <h2>How It Works</h2>
-        <div class="steps">
-            <div>
-                <h3>Step 1</h3>
-                <p>Input your professional background and skills.</p>
-            </div>
-            <div>
-                <h3>Step 2</h3>
-                <p>Upload a job description and let Joberto AI craft a resume.</p>
-            </div>
-            <div>
-                <h3>Step 3</h3>
-                <p>Download your resume and apply with confidence!</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="pricing">
-        <h2>Pricing</h2>
-        <p>Enjoy our <strong>freemium</strong> plan or upgrade for advanced features that give you an edge in your job search.</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Plan</th>
-                    <th>Features</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Free</td>
-                    <td>25 resume generations/month, select templates</td>
-                    <td>$0</td>
-                </tr>
-                <tr>
-                    <td>Premium</td>
-                    <td>Unlimited generations, all templates</td>
-                    <td>$9.99/month</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    
-    <section>
-        <h2>FAQs</h2>
-        <p><strong>Q: Is my data secure?</strong></p>
-        <p>A: Yes! Your data is stored locally on your browser for maximum privacy.</p>
-        <p><strong>Q: How much does it cost?</strong></p>
-        <p>A: We offer a free plan with optional upgrades for enhanced features.</p>
-    </section>
-    <section id="get-started">
-        <h2>Get Started Today</h2>
-        <a href="#" class="cta-button">Download Now</a>
-    </section>
-    <footer>
-        <p>&copy; 2024 Joberto AI. All rights reserved. | <a href="#">Privacy Policy</a></p>
-    </footer>
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -275,6 +91,16 @@
                 habitSpan.classList.toggle("completed");
             };
 
+            // Create an edit button
+            const editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.onclick = () => {
+                const newText = prompt("Edit your habit:", habitSpan.textContent);
+                if (newText !== null && newText.trim() !== "") {
+                    habitSpan.textContent = newText.trim();
+                }
+            };
+
             // Create a delete button
             const deleteButton = document.createElement("button");
             deleteButton.textContent = "Delete";
@@ -282,8 +108,9 @@
                 habitList.removeChild(listItem);
             };
 
-            // Append the span and button to the list item
+            // Append the span and buttons to the list item
             listItem.appendChild(habitSpan);
+            listItem.appendChild(editButton);
             listItem.appendChild(deleteButton);
 
             // Add the list item to the habit list
