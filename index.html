@@ -59,11 +59,17 @@
             text-decoration: line-through;
             color: gray;
         }
+        .email-input {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Habit Tracker</h1>
+        <div class="email-input">
+            <input type="text" id="emailInput" placeholder="Enter your email">
+        </div>
         <input type="text" id="habitInput" placeholder="Enter a habit">
         <button id="addButton">Add Habit</button>
         <ul class="habit-list" id="habitList"></ul>
