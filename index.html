@@ -48,12 +48,18 @@
         }
         .habit-item {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             margin-bottom: 10px;
+        }
+        .habit-header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
         }
         .completed {
             text-decoration: line-through;
@@ -61,6 +67,16 @@
         }
         .email-input {
             margin-bottom: 20px;
+        }
+        .days-container {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .day {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     </style>
 </head>
@@ -75,6 +91,8 @@
         <ul class="habit-list" id="habitList"></ul>
     </div>
     <script>
+        const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
         // Function to add a habit
         function addHabit() {
             const input = document.getElementById("habitInput");
@@ -89,6 +107,10 @@
             // Create a new list item
             const listItem = document.createElement("li");
             listItem.className = "habit-item";
+
+            // Header containing habit text and buttons
+            const header = document.createElement("div");
+            header.className = "habit-header";
 
             // Create a span for the habit text
             const habitSpan = document.createElement("span");
@@ -114,10 +136,35 @@
                 habitList.removeChild(listItem);
             };
 
-            // Append the span and buttons to the list item
-            listItem.appendChild(habitSpan);
-            listItem.appendChild(editButton);
-            listItem.appendChild(deleteButton);
+            // Append habit span and buttons to header
+            header.appendChild(habitSpan);
+            header.appendChild(editButton);
+            header.appendChild(deleteButton);
+
+            // Create a container for days of the week
+            const daysContainer = document.createElement("div");
+            daysContainer.className = "days-container";
+
+            daysOfWeek.forEach(day => {
+                const dayDiv = document.createElement("div");
+                dayDiv.className = "day";
+
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.id = `${habitText}-${day}`;
+
+                const label = document.createElement("label");
+                label.htmlFor = checkbox.id;
+                label.textContent = day;
+
+                dayDiv.appendChild(checkbox);
+                dayDiv.appendChild(label);
+                daysContainer.appendChild(dayDiv);
+            });
+
+            // Append header and days container to list item
+            listItem.appendChild(header);
+            listItem.appendChild(daysContainer);
 
             // Add the list item to the habit list
             habitList.appendChild(listItem);
