@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -179,4 +179,134 @@
         <p>&copy; 2024 Joberto AI. All rights reserved. | <a href="#">Privacy Policy</a></p>
     </footer>
 </body>
+</html> -->
+
+
+
+# Ensuring the habit tracker functionality is thoroughly tested and fixed.
+
+html_content_fixed = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Habit Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        input[type="text"], button {
+            width: calc(100% - 40px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .habit-list {
+            list-style: none;
+            padding: 0;
+        }
+        .habit-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Habit Tracker</h1>
+        <input type="text" id="habitInput" placeholder="Enter a habit">
+        <button id="addButton">Add Habit</button>
+        <ul class="habit-list" id="habitList"></ul>
+    </div>
+    <script>
+        // Function to add a habit
+        function addHabit() {
+            const input = document.getElementById("habitInput");
+            const habitList = document.getElementById("habitList");
+            const habitText = input.value.trim();
+
+            if (habitText === "") {
+                alert("Please enter a habit.");
+                return;
+            }
+
+            // Create a new list item
+            const listItem = document.createElement("li");
+            listItem.className = "habit-item";
+
+            // Create a span for the habit text
+            const habitSpan = document.createElement("span");
+            habitSpan.textContent = habitText;
+            habitSpan.onclick = () => {
+                habitSpan.classList.toggle("completed");
+            };
+
+            // Create a delete button
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.onclick = () => {
+                habitList.removeChild(listItem);
+            };
+
+            // Append the span and button to the list item
+            listItem.appendChild(habitSpan);
+            listItem.appendChild(deleteButton);
+
+            // Add the list item to the habit list
+            habitList.appendChild(listItem);
+
+            // Clear the input field
+            input.value = "";
+        }
+
+        // Add event listener to the button
+        document.getElementById("addButton").addEventListener("click", addHabit);
+    </script>
+</body>
 </html>
+"""
+
+# Save the fixed version to a file
+file_path_fixed = "/mnt/data/simple_habit_tracker_fixed.html"
+with open(file_path_fixed, "w") as file:
+    file.write(html_content_fixed)
+
+file_path_fixed
