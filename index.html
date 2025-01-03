@@ -3,178 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Habit Tracker</title>
+    <title>Joberto AI - Your Resume Assistant</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            line-height: 1.6;
+            background-color: #fdfcf8;
         }
-        .container {
-            max-width: 400px;
-            margin: 50px auto;
-            background: white;
+
+        header {
+            background-color: #7bbf6a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .hero {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero img {
+            width: 200px;
+            height: auto;
+            margin: 20px 0;
+        }
+
+        .hero button {
+            background-color: #f3ca7e;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .hero button:hover {
+            background-color: #e6b566;
+        }
+
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .features {
+            background-color: #eaf5e5;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        input[type="text"], button {
-            width: calc(100% - 40px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        .habit-list {
+
+        .features ul {
             list-style: none;
             padding: 0;
         }
-        .habit-item {
+
+        .features li {
+            margin: 10px 0;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 10px;
+            align-items: center;
         }
-        .habit-header {
-            display: flex;
-            justify-content: space-between;
+
+        .features li span {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .pricing {
+            background-color: #f8f0df;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .pricing table {
             width: 100%;
-            align-items: center;
+            border-collapse: collapse;
         }
-        .completed {
-            text-decoration: line-through;
-            color: gray;
+
+        .pricing th, .pricing td {
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ddd;
         }
-        .email-input {
-            margin-bottom: 20px;
+
+        .pricing th {
+            background-color: #f3ca7e;
+            color: white;
         }
-        .days-container {
-            display: flex;
-            gap: 5px;
-            margin-top: 10px;
+
+        footer {
+            background-color: #7bbf6a;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
         }
-        .day {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+
+        .testimonial {
+            background-color: #fdfcf8;
+            text-align: center;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        .faq {
+            background-color: #f8f0df;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .faq h3 {
+            margin-top: 0;
+        }
+
+        .how-it-works {
+            background-color: #eaf5e5;
+            padding: 20px;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Habit Tracker</h1>
-        <div class="email-input">
-            <input type="text" id="emailInput" placeholder="Enter your email">
-        </div>
-        <input type="text" id="habitInput" placeholder="Enter a habit">
-        <button id="addButton">Add Habit</button>
-        <ul class="habit-list" id="habitList"></ul>
-    </div>
-    <script>
-        const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    <header>
+        <h1>Welcome to Joberto AI</h1>
+        <p>Your Personal AI-Powered Resume Assistant</p>
+    </header>
 
-        // Function to add a habit
-        function addHabit() {
-            const input = document.getElementById("habitInput");
-            const habitList = document.getElementById("habitList");
-            const habitText = input.value.trim();
+    <section class="hero">
+        <img src="placeholder-iguana.png" alt="Joberto the Iguana Mascot">
+        <p>Save time and land your dream job with tailored resumes!</p>
+        <button>Download Now</button>
+    </section>
 
-            if (habitText === "") {
-                alert("Please enter a habit.");
-                return;
-            }
+    <section class="features">
+        <h2>Why Choose Joberto AI?</h2>
+        <ul>
+            <li><span>✨</span> Tailor your resumes for any job effortlessly.</li>
+            <li><span>⏳</span> Save hours on formatting and design.</li>
+            <li><span>📝</span> Store your experience once, use it forever.</li>
+            <li><span>📑</span> Access a variety of beautiful templates.</li>
+        </ul>
+    </section>
 
-            // Create a new list item
-            const listItem = document.createElement("li");
-            listItem.className = "habit-item";
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <p>1. Enter your experience details once.</p>
+        <p>2. Choose a job description to match.</p>
+        <p>3. Generate a tailored, visually appealing resume in seconds!</p>
+        <p><em>Placeholder for future images or videos.</em></p>
+    </section>
 
-            // Header containing habit text and buttons
-            const header = document.createElement("div");
-            header.className = "habit-header";
+    <section class="pricing">
+        <h2>Pricing</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Plan</th>
+                    <th>Features</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Free</td>
+                    <td>25 resume generations/month, select templates</td>
+                    <td>$0</td>
+                </tr>
+                <tr>
+                    <td>Premium</td>
+                    <td>Unlimited generations, all templates</td>
+                    <td>$9.99/month</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-            // Create a span for the habit text
-            const habitSpan = document.createElement("span");
-            habitSpan.textContent = habitText;
-            habitSpan.onclick = () => {
-                habitSpan.classList.toggle("completed");
-            };
+    <section class="testimonial">
+        <h2>What Our Users Say</h2>
+        <p>"Joberto AI helped me land my dream job in no time!"</p>
+        <p><em>- Placeholder User</em></p>
+    </section>
 
-            // Create an edit button
-            const editButton = document.createElement("button");
-            editButton.textContent = "Edit";
-            editButton.onclick = () => {
-                const newText = prompt("Edit your habit:", habitSpan.textContent);
-                if (newText !== null && newText.trim() !== "") {
-                    habitSpan.textContent = newText.trim();
-                }
-            };
+    <section class="faq">
+        <h2>FAQs</h2>
+        <h3>Is Joberto AI available on all browsers?</h3>
+        <p>No, Joberto AI is a Chrome extension available exclusively on the Chrome Web Store.</p>
 
-            // Create a delete button
-            const deleteButton = document.createElement("button");
-            deleteButton.textContent = "Delete";
-            deleteButton.onclick = () => {
-                habitList.removeChild(listItem);
-            };
+        <h3>What’s included in the premium plan?</h3>
+        <p>The premium plan offers unlimited resume generations and access to all templates.</p>
 
-            // Append habit span and buttons to header
-            header.appendChild(habitSpan);
-            header.appendChild(editButton);
-            header.appendChild(deleteButton);
+        <h3>How do resume generation limits work?</h3>
+        <p>Free users can generate up to 25 resumes per month, while premium users have no limits.</p>
+    </section>
 
-            // Create a container for days of the week
-            const daysContainer = document.createElement("div");
-            daysContainer.className = "days-container";
-
-            daysOfWeek.forEach(day => {
-                const dayDiv = document.createElement("div");
-                dayDiv.className = "day";
-
-                const checkbox = document.createElement("input");
-                checkbox.type = "checkbox";
-                checkbox.id = `${habitText}-${day}`;
-
-                const label = document.createElement("label");
-                label.htmlFor = checkbox.id;
-                label.textContent = day;
-
-                dayDiv.appendChild(checkbox);
-                dayDiv.appendChild(label);
-                daysContainer.appendChild(dayDiv);
-            });
-
-            // Append header and days container to list item
-            listItem.appendChild(header);
-            listItem.appendChild(daysContainer);
-
-            // Add the list item to the habit list
-            habitList.appendChild(listItem);
-
-            // Clear the input field
-            input.value = "";
-        }
-
-        // Add event listener to the button
-        document.getElementById("addButton").addEventListener("click", addHabit);
-    </script>
+    <footer>
+        <p>© 2024 Joberto AI. All rights reserved.</p>
+    </footer>
 </body>
 </html>
+
